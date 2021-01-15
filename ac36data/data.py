@@ -8,7 +8,7 @@ def get_races(event):
     path = os.path.split(__file__)[0]
     path += f"/{event}"
     races = [i for i in os.listdir(path) if i not in "RaceData"]
-    return sorted(races)
+    return sorted(races, key=int)
 
 
 def get_boats(event, i):
