@@ -1,0 +1,125 @@
+{
+	"Race": {
+		"RaceNumber": "3",
+		"NumberOfLegs": "6"
+	},
+	"LegStats": [
+		{
+			"LegNumber": "1",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "4m 46s",
+					"DistSailed": "4627m",
+					"MaxSpeed": "43.45kn",
+					"AveSpeed": "32.78kn",
+					"TacksGybes": "3"
+				},
+				{
+					"Place": "2",
+					"Country": "GBR",
+					"TeamID": "4",
+					"TeamColour": "#FB7722",
+					"Delta": "+1m 09s",
+					"DistSailed": "4724m",
+					"MaxSpeed": "35.67kn",
+					"AveSpeed": "30.80kn",
+					"TacksGybes": "4"
+				}
+			]
+		},
+		{
+			"LegNumber": "2",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "9m 03s",
+					"DistSailed": "4928m",
+					"MaxSpeed": "43.31kn",
+					"AveSpeed": "37.35kn",
+					"TacksGybes": "4"
+				}			]
+		},
+		{
+			"LegNumber": "3",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "14m 50s",
+					"DistSailed": "5491m",
+					"MaxSpeed": "37.50kn",
+					"AveSpeed": "30.85kn",
+					"TacksGybes": "5"
+				}			]
+		},
+		{
+			"LegNumber": "4",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "18m 50s",
+					"DistSailed": "4730m",
+					"MaxSpeed": "44.96kn",
+					"AveSpeed": "38.45kn",
+					"TacksGybes": "3"
+				}			]
+		},
+		{
+			"LegNumber": "5",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "24m 06s",
+					"DistSailed": "5499m",
+					"MaxSpeed": "42.21kn",
+					"AveSpeed": "33.88kn",
+					"TacksGybes": "5"
+				}			]
+		},
+		{
+			"LegNumber": "6",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "27m 41s",
+					"DistSailed": "4497m",
+					"MaxSpeed": "46.12kn",
+					"AveSpeed": "40.74kn",
+					"TacksGybes": "3"
+				}			]
+		}
+	],
+	"RaceStats": {
+		"Boat": [
+			{
+				"Place": "1",
+				"Country": "ITA",
+				"TeamID": "2",
+				"TeamColour": "#7DCF30",
+				"TimeTaken": "27m 41s",
+				"DistSailed": "29773m",
+				"MaxSpeed": "46.12kn",
+				"AveSpeed": "35.16kn",
+				"TacksGybes": "23"
+			}
+		]
+	}
+}

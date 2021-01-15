@@ -1,0 +1,23 @@
+DataFile	= PCRR1_Race_1_USA_GBR.bin
+Race		= 
+RaceNameA	= Race 1
+RaceNameB	= 
+RaceInfoA	= Auckland
+RaceInfoB	= Match Race
+RaceInfoC	= Race 1
+Date		= Jan 15
+DayOfWeek	= Friday
+Time		= 15:10
+Y1		= 0
+
+DataFile	= PCRR1_Race_2_GBR_ITA.bin
+Race		= 
+RaceNameA	= Race 2
+RaceNameB	= 
+RaceInfoA	= Auckland
+RaceInfoB	= Match Race
+RaceInfoC	= Race 2
+Date		= Jan 15
+DayOfWeek	= Friday
+Time		= 16:10
+Y1		= 0

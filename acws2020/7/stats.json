@@ -1,0 +1,250 @@
+{
+	"Race": {
+		"RaceNumber": "7",
+		"NumberOfLegs": "8"
+	},
+	"LegStats": [
+		{
+			"LegNumber": "1",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"TimeTaken": "3m 25s",
+					"DistSailed": "3321m",
+					"MaxSpeed": "37.09kn",
+					"AveSpeed": "32.55kn",
+					"TacksGybes": "3"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"Delta": "+0m 21s",
+					"DistSailed": "3577m",
+					"MaxSpeed": "42.62kn",
+					"AveSpeed": "33.05kn",
+					"TacksGybes": "4"
+				}
+			]
+		},
+		{
+			"LegNumber": "2",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"TimeTaken": "6m 37s",
+					"DistSailed": "3761m",
+					"MaxSpeed": "42.51kn",
+					"AveSpeed": "38.11kn",
+					"TacksGybes": "3"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"Delta": "+0m 20s",
+					"DistSailed": "3830m",
+					"MaxSpeed": "45.70kn",
+					"AveSpeed": "39.06kn",
+					"TacksGybes": "2"
+				}
+			]
+		},
+		{
+			"LegNumber": "3",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"TimeTaken": "11m 03s",
+					"DistSailed": "4354m",
+					"MaxSpeed": "39.24kn",
+					"AveSpeed": "31.87kn",
+					"TacksGybes": "5"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"Delta": "+0m 10s",
+					"DistSailed": "4237m",
+					"MaxSpeed": "38.06kn",
+					"AveSpeed": "32.26kn",
+					"TacksGybes": "5"
+				}
+			]
+		},
+		{
+			"LegNumber": "4",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"TimeTaken": "13m 57s",
+					"DistSailed": "3471m",
+					"MaxSpeed": "44.01kn",
+					"AveSpeed": "38.82kn",
+					"TacksGybes": "1"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"Delta": "+0m 14s",
+					"DistSailed": "3425m",
+					"MaxSpeed": "42.92kn",
+					"AveSpeed": "37.43kn",
+					"TacksGybes": "1"
+				}
+			]
+		},
+		{
+			"LegNumber": "5",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"TimeTaken": "18m 23s",
+					"DistSailed": "4263m",
+					"MaxSpeed": "36.29kn",
+					"AveSpeed": "31.29kn",
+					"TacksGybes": "5"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"Delta": "+0m 05s",
+					"DistSailed": "4190m",
+					"MaxSpeed": "36.15kn",
+					"AveSpeed": "31.83kn",
+					"TacksGybes": "5"
+				}
+			]
+		},
+		{
+			"LegNumber": "6",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"TimeTaken": "21m 19s",
+					"DistSailed": "3472m",
+					"MaxSpeed": "40.68kn",
+					"AveSpeed": "38.22kn",
+					"TacksGybes": "1"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"Delta": "+0m 22s",
+					"DistSailed": "3718m",
+					"MaxSpeed": "41.39kn",
+					"AveSpeed": "37.45kn",
+					"TacksGybes": "3"
+				}
+			]
+		},
+		{
+			"LegNumber": "7",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"TimeTaken": "25m 48s",
+					"DistSailed": "4312m",
+					"MaxSpeed": "37.87kn",
+					"AveSpeed": "31.32kn",
+					"TacksGybes": "5"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"Delta": "+0m 16s",
+					"DistSailed": "4224m",
+					"MaxSpeed": "37.15kn",
+					"AveSpeed": "31.31kn",
+					"TacksGybes": "5"
+				}
+			]
+		},
+		{
+			"LegNumber": "8",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"TimeTaken": "28m 48s",
+					"DistSailed": "3433m",
+					"MaxSpeed": "39.38kn",
+					"AveSpeed": "36.92kn",
+					"TacksGybes": "1"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"Delta": "+0m 30s",
+					"DistSailed": "3662m",
+					"MaxSpeed": "41.60kn",
+					"AveSpeed": "36.62kn",
+					"TacksGybes": "3"
+				}
+			]
+		}
+	],
+	"RaceStats": {
+		"Boat": [
+			{
+				"Place": "1",
+				"Country": "USA",
+				"TeamID": "3",
+				"TeamColour": "#006FFB",
+				"TimeTaken": "28m 48s",
+				"DistSailed": "30386m",
+				"MaxSpeed": "44.01kn",
+				"AveSpeed": "34.35kn",
+				"TacksGybes": "24"
+			},
+			{
+				"Place": "2",
+				"Country": "ITA",
+				"TeamID": "2",
+				"TeamColour": "#7DCF30",
+				"Delta": "+0m 30s",
+				"DistSailed": "30863m",
+				"MaxSpeed": "45.70kn",
+				"AveSpeed": "34.48kn",
+				"TacksGybes": "28"
+			}
+		]
+	}
+}

@@ -1,0 +1,196 @@
+{
+	"Race": {
+		"RaceNumber": "1",
+		"NumberOfLegs": "6"
+	},
+	"LegStats": [
+		{
+			"LegNumber": "1",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "GBR",
+					"TeamID": "4",
+					"TeamColour": "#FB7722",
+					"TimeTaken": "3m 37s",
+					"DistSailed": "3677m",
+					"MaxSpeed": "38.14kn",
+					"AveSpeed": "33.29kn",
+					"TacksGybes": "3"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+0m 11s",
+					"DistSailed": "3699m",
+					"MaxSpeed": "35.91kn",
+					"AveSpeed": "31.91kn",
+					"TacksGybes": "2"
+				}
+			]
+		},
+		{
+			"LegNumber": "2",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "GBR",
+					"TeamID": "4",
+					"TeamColour": "#FB7722",
+					"TimeTaken": "6m 59s",
+					"DistSailed": "4113m",
+					"MaxSpeed": "44.56kn",
+					"AveSpeed": "39.65kn",
+					"TacksGybes": "2"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+0m 19s",
+					"DistSailed": "4089m",
+					"MaxSpeed": "41.17kn",
+					"AveSpeed": "38.08kn",
+					"TacksGybes": "2"
+				}
+			]
+		},
+		{
+			"LegNumber": "3",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "GBR",
+					"TeamID": "4",
+					"TeamColour": "#FB7722",
+					"TimeTaken": "11m 40s",
+					"DistSailed": "4672m",
+					"MaxSpeed": "37.44kn",
+					"AveSpeed": "32.40kn",
+					"TacksGybes": "4"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+0m 47s",
+					"DistSailed": "5024m",
+					"MaxSpeed": "39.54kn",
+					"AveSpeed": "31.61kn",
+					"TacksGybes": "4"
+				}
+			]
+		},
+		{
+			"LegNumber": "4",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "GBR",
+					"TeamID": "4",
+					"TeamColour": "#FB7722",
+					"TimeTaken": "14m 57s",
+					"DistSailed": "4073m",
+					"MaxSpeed": "44.03kn",
+					"AveSpeed": "40.27kn",
+					"TacksGybes": "3"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+1m 08s",
+					"DistSailed": "4202m",
+					"MaxSpeed": "41.49kn",
+					"AveSpeed": "37.71kn",
+					"TacksGybes": "3"
+				}
+			]
+		},
+		{
+			"LegNumber": "5",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "GBR",
+					"TeamID": "4",
+					"TeamColour": "#FB7722",
+					"TimeTaken": "19m 47s",
+					"DistSailed": "4752m",
+					"MaxSpeed": "38.58kn",
+					"AveSpeed": "31.97kn",
+					"TacksGybes": "5"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+1m 08s",
+					"DistSailed": "4765m",
+					"MaxSpeed": "40.89kn",
+					"AveSpeed": "31.98kn",
+					"TacksGybes": "4"
+				}
+			]
+		},
+		{
+			"LegNumber": "6",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "GBR",
+					"TeamID": "4",
+					"TeamColour": "#FB7722",
+					"TimeTaken": "23m 13s",
+					"DistSailed": "4134m",
+					"MaxSpeed": "42.60kn",
+					"AveSpeed": "38.85kn",
+					"TacksGybes": "3"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+1m 20s",
+					"DistSailed": "4190m",
+					"MaxSpeed": "45.77kn",
+					"AveSpeed": "37.31kn",
+					"TacksGybes": "2"
+				}
+			]
+		}
+	],
+	"RaceStats": {
+		"Boat": [
+			{
+				"Place": "1",
+				"Country": "GBR",
+				"TeamID": "4",
+				"TeamColour": "#FB7722",
+				"TimeTaken": "23m 13s",
+				"DistSailed": "25421m",
+				"MaxSpeed": "44.56kn",
+				"AveSpeed": "35.57kn",
+				"TacksGybes": "20"
+			},
+			{
+				"Place": "2",
+				"Country": "USA",
+				"TeamID": "3",
+				"TeamColour": "#006FFB",
+				"Delta": "+1m 20s",
+				"DistSailed": "25969m",
+				"MaxSpeed": "45.77kn",
+				"AveSpeed": "34.39kn",
+				"TacksGybes": "17"
+			}
+		]
+	}
+}
