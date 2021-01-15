@@ -18,7 +18,7 @@ def update_events(events):
 
 
 def update_event(event):
-    path = event + "/"
+    path = f"raw/{event}/"
     r = requests.get(
         f"https://dx6j99ytnx80e.cloudfront.net/racedata/{event}/RacesList.dat"
     )
@@ -34,9 +34,9 @@ def read_race(l, event):
 
     race = re.findall(r"Race_\d+", l)[0]
     n = re.findall(r"\d+", race)[0]
-    race_path = f"{event}/{n}"
+    race_path = f"raw/{event}/{n}"
 
-    if n not in os.listdir(event):
+    if n not in os.listdir(f"raw/{event}"):
         os.mkdir(race_path)
 
     file = l.split("=")[1].strip()

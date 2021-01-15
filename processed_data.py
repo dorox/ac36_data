@@ -26,24 +26,27 @@ stats = {
 def read_events(events):
     events_data = dict().fromkeys(events)
     for event in events:
-        if event in os.listdir():
+        if event in os.listdir("raw"):
             events_data[event] = read_races(event)
     return events_data
 
 
 def read_races(event):
     races = dict()
-    for i in os.listdir(event):
+    for i in os.listdir(f"raw/{event}"):
         if "RacesList" in i:
             continue
         path = f"{event}/{i}"
-        with open(f"{path}/stats.json", "rb") as f:
+        with open(f"raw/{path}/stats.json", "rb") as f:
             race = json.load(f)
         races[str(i)] = race
-        boats = read_boats(race, path)
+        boats = read_boats(race, f"raw/{path}")
         if compress:
+            b1 = interpolate_boat(boats[0], race)
+            b2 = interpolate_boat(boats[1], race)
             save_stats(race, path)
-        return races, boats
+            save_boats((b1, b2), path)
+    return races
 
 
 def read_boats(race, path):
@@ -53,10 +56,6 @@ def read_boats(race, path):
         boat1 = json.load(f)
     with open(f"{path}/boat2.json", "rb") as f:
         boat2 = json.load(f)
-    if compress:
-        boat1 = interpolate_boat(boat1, race)
-        boat1 = interpolate_boat(boat2, race)
-        save_boats((boat1, boat2), path)
     return boat1, boat2
 
 
@@ -80,12 +79,23 @@ def interpolate_boat(boat_data, race):
 
 
 def save_boats(boats, path):
+    path = "ac36data/" + path
+    # if path not in os.listdir():
+    try:
+        os.mkdir(path)
+    except FileExistsError:
+        pass
     with open(f"{path}/boats.bin", "wb") as f:
         for b in boats:
             pickle.dump(b, f)
 
 
 def save_stats(race, path):
+    path = "ac36data/" + path
+    try:
+        os.mkdir(path)
+    except FileExistsError:
+        pass
     with open(f"{path}/stats.bin", "wb") as f:
         pickle.dump(race, f)
 
