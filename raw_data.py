@@ -12,8 +12,8 @@ race_stats = {
 
 def update_events(events):
     for event in events:
-        if event not in os.listdir():
-            os.mkdir(event)
+        if event not in os.listdir("raw"):
+            os.mkdir(f"raw/{event}")
         update_event(event)
 
 
@@ -26,20 +26,22 @@ def update_event(event):
         f.write(r.content)
     for l in r.text.splitlines():
         if "DataFile" in l:
-            read_race(l, event)
+            df = l
+        if "RaceNameA" in l:
+            read_race(l, df, event)
 
 
-def read_race(l, event):
+def read_race(l, df, event):
     # Downloads stats.json and binary race data
 
-    race = re.findall(r"Race_\d+", l)[0]
+    race = re.findall(r"Race.*\d+", l)[0]
     n = re.findall(r"\d+", race)[0]
     race_path = f"raw/{event}/{n}"
 
     if n not in os.listdir(f"raw/{event}"):
         os.mkdir(race_path)
 
-    file = l.split("=")[1].strip()
+    file = df.split("=")[1].strip()
 
     if file not in os.listdir(race_path):
         r = requests.get(

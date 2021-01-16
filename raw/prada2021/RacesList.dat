@@ -1,4 +1,4 @@
-DataFile	= PCRR1_Race_1_USA_GBR.bin
+DataFile	= PradaCup_RR1_Race1_USAvUK.bin
 Race		= 
 RaceNameA	= Race 1
 RaceNameB	= 
@@ -10,7 +10,7 @@ DayOfWeek	= Friday
 Time		= 15:10
 Y1		= 0
 
-DataFile	= PCRR1_Race_2_GBR_ITA.bin
+DataFile	= PradaCup_RR1_Race2_UKvITA.bin
 Race		= 
 RaceNameA	= Race 2
 RaceNameB	= 
@@ -20,4 +20,28 @@ RaceInfoC	= Race 2
 Date		= Jan 15
 DayOfWeek	= Friday
 Time		= 16:10
+Y1		= 0
+
+DataFile	= PCRR1_Race_3_ITA_USA.bin
+Race		= 
+RaceNameA	= Race 3
+RaceNameB	= 
+RaceInfoA	= Auckland
+RaceInfoB	= Match Race
+RaceInfoC	= Race 3
+Date		= Jan 16
+DayOfWeek	= Saturday
+Time		= 15:10
+Y1		= 0
+
+DataFile	= PCRR2_Race_1_GBR_USA.bin
+Race		= 
+RaceNameA	= Race 4
+RaceNameB	= 
+RaceInfoA	= Auckland
+RaceInfoB	= Match Race
+RaceInfoC	= Race 4
+Date		= Jan 16
+DayOfWeek	= Saturday
+Time		= 16:40
 Y1		= 0
