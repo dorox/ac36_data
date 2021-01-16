@@ -9,7 +9,7 @@ for path, subdirs, files in os.walk("ac36data/"):
 
 setup(
     name="ac36data",
-    version="0.2",
+    version="0.2.1",
     packages=["ac36data"],
     package_data={"ac36data": data},
 )
