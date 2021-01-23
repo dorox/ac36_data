@@ -69,3 +69,15 @@ Date		= Jan 17
 DayOfWeek	= Sunday
 Time		= 17:00
 Y1		= 0
+
+DataFile	= PCRR3_Race_2_ITA_GBR.bin
+Race		= 
+RaceNameA	= Race 8
+RaceNameB	= 
+RaceInfoA	= Auckland
+RaceInfoB	= Match Race
+RaceInfoC	= Race 8
+Date		= Jan 23
+DayOfWeek	= Saturday
+Time		= 17:00
+Y1		= 0
