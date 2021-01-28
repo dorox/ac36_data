@@ -3,6 +3,8 @@ import numpy as np
 import json
 import pickle
 
+from pyproj import CRS, Transformer
+
 compress = False
 events = ["acws2020", "prada2021", "ac2021"]
 stats = {
@@ -63,11 +65,31 @@ def interpolate_boat(boat_data, race):
     boat = dict()
     x = stat("heading", boat_data)
     x = x["x"]
-    x = np.linspace(int(x[0]), int(x[-1]), int(x[-1] - x[0]), dtype=int)
+    x = np.linspace(int(x[0]), int(x[-1]), int(x[-1] - x[0])*2, dtype=int)
     for s in stats:
         data = stat(s, boat_data)
         y = np.interp(x, data["x"], data["y"])
         boat[s] = y
+    # ----coordinates----
+    # UTM zone 60S
+    crs_utm = CRS.from_epsg(27260)
+    # Web mercator
+    crs_wm = CRS.from_epsg(3857)
+    tr = Transformer.from_crs(crs_utm, crs_wm)
+    lon_y_raw = [i[0] for i in boat_data["coordIntep"]["xCerp"]["valHistory"]]
+    lat_y_raw = [i[0] for i in boat_data["coordIntep"]["yCerp"]["valHistory"]]
+    boat_data['lon'] = []
+    boat_data['lat'] = []
+    boat_data['lonx'] = [i[1] for i in boat_data["coordIntep"]["xCerp"]["valHistory"]]
+    boat_data['latx'] = [i[1] for i in boat_data["coordIntep"]["yCerp"]["valHistory"]]
+    
+    for i, (lon, lat) in enumerate(zip(lon_y_raw, lat_y_raw)):
+        lon, lat = tr.transform(lon, lat)
+        boat_data["lon"].append(lon)
+        boat_data["lat"].append(lat)
+    boat['lon'] = np.interp(x, boat_data['lonx'], boat_data['lon'])
+    boat['lat'] = np.interp(x, boat_data['latx'], boat_data['lat'])
+    # ----end of coord interp-----
     race_start = boat_data["legInterp"]["valHistory"][1][1]
     boat["legs"] = np.array([i[1] for i in boat_data["legInterp"]["valHistory"]])
     boat["legs"] = np.array(boat["legs"] - race_start, dtype="timedelta64[s]")
