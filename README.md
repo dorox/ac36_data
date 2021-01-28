@@ -10,7 +10,8 @@ Ongoing ideas:
 -------------------------
 1. Scraping all data packets for all races
 2. Parsing rudder angle, if this is a useful data
-3. Is it possible to get yaw angle from heading and boat track?
+3. Is it possible to get yaw angle from heading and boat track? -YES, but still need to do that.
+4. Process course info for map app.
 
 Getting boat data:
 -------------------
