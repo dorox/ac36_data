@@ -1,0 +1,286 @@
+{
+	"Race": {
+		"RaceNumber": "1",
+		"NumberOfLegs": "8"
+	},
+	"LegStats": [
+		{
+			"LegNumber": "1",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "3m 24s",
+					"DistSailed": "3587m",
+					"MaxSpeed": "42.38kn",
+					"AveSpeed": "36.44kn",
+					"TacksGybes": "2",
+					"MinWindSpeed": "13.61kn",
+					"MaxWindSpeed": "25.27kn"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+0m 18s",
+					"DistSailed": "3731m",
+					"MaxSpeed": "43.89kn",
+					"AveSpeed": "36.42kn",
+					"TacksGybes": "2",
+					"MinWindSpeed": "16.15kn",
+					"MaxWindSpeed": "25.33kn"
+				}
+			]
+		},
+		{
+			"LegNumber": "2",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "6m 07s",
+					"DistSailed": "3827m",
+					"MaxSpeed": "49.76kn",
+					"AveSpeed": "45.45kn",
+					"TacksGybes": "2",
+					"MinWindSpeed": "12.65kn",
+					"MaxWindSpeed": "24.27kn"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+0m 22s",
+					"DistSailed": "3757m",
+					"MaxSpeed": "50.57kn",
+					"AveSpeed": "43.72kn",
+					"TacksGybes": "2",
+					"MinWindSpeed": "16.22kn",
+					"MaxWindSpeed": "24.45kn"
+				}
+			]
+		},
+		{
+			"LegNumber": "3",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "10m 06s",
+					"DistSailed": "4520m",
+					"MaxSpeed": "43.49kn",
+					"AveSpeed": "36.91kn",
+					"TacksGybes": "3",
+					"MinWindSpeed": "14.79kn",
+					"MaxWindSpeed": "25.71kn"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+0m 33s",
+					"DistSailed": "4742m",
+					"MaxSpeed": "44.84kn",
+					"AveSpeed": "36.98kn",
+					"TacksGybes": "4",
+					"MinWindSpeed": "16.38kn",
+					"MaxWindSpeed": "25.75kn"
+				}
+			]
+		},
+		{
+			"LegNumber": "4",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "12m 59s",
+					"DistSailed": "3941m",
+					"MaxSpeed": "49.83kn",
+					"AveSpeed": "44.15kn",
+					"TacksGybes": "2",
+					"MinWindSpeed": "13.85kn",
+					"MaxWindSpeed": "22.50kn"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+0m 33s",
+					"DistSailed": "3865m",
+					"MaxSpeed": "50.76kn",
+					"AveSpeed": "43.24kn",
+					"TacksGybes": "2",
+					"MinWindSpeed": "12.77kn",
+					"MaxWindSpeed": "24.50kn"
+				}
+			]
+		},
+		{
+			"LegNumber": "5",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "16m 51s",
+					"DistSailed": "4248m",
+					"MaxSpeed": "42.04kn",
+					"AveSpeed": "35.66kn",
+					"TacksGybes": "3",
+					"MinWindSpeed": "13.52kn",
+					"MaxWindSpeed": "28.05kn"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+0m 58s",
+					"DistSailed": "4868m",
+					"MaxSpeed": "45.92kn",
+					"AveSpeed": "36.89kn",
+					"TacksGybes": "3",
+					"MinWindSpeed": "15.90kn",
+					"MaxWindSpeed": "25.80kn"
+				}
+			]
+		},
+		{
+			"LegNumber": "6",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "19m 43s",
+					"DistSailed": "3837m",
+					"MaxSpeed": "49.35kn",
+					"AveSpeed": "43.41kn",
+					"TacksGybes": "4",
+					"MinWindSpeed": "13.57kn",
+					"MaxWindSpeed": "23.83kn"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+2m 25s",
+					"DistSailed": "5009m",
+					"MaxSpeed": "53.31kn",
+					"AveSpeed": "37.61kn",
+					"TacksGybes": "3",
+					"MinWindSpeed": "16.25kn",
+					"MaxWindSpeed": "26.06kn"
+				}
+			]
+		},
+		{
+			"LegNumber": "7",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "23m 51s",
+					"DistSailed": "4484m",
+					"MaxSpeed": "42.90kn",
+					"AveSpeed": "35.36kn",
+					"TacksGybes": "4",
+					"MinWindSpeed": "14.18kn",
+					"MaxWindSpeed": "24.92kn"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+2m 33s",
+					"DistSailed": "4931m",
+					"MaxSpeed": "45.11kn",
+					"AveSpeed": "37.64kn",
+					"TacksGybes": "3",
+					"MinWindSpeed": "15.14kn",
+					"MaxWindSpeed": "25.29kn"
+				}
+			]
+		},
+		{
+			"LegNumber": "8",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#7DCF30",
+					"TimeTaken": "26m 42s",
+					"DistSailed": "3852m",
+					"MaxSpeed": "48.95kn",
+					"AveSpeed": "43.70kn",
+					"TacksGybes": "4",
+					"MinWindSpeed": "12.77kn",
+					"MaxWindSpeed": "22.99kn"
+				},
+				{
+					"Place": "2",
+					"Country": "USA",
+					"TeamID": "3",
+					"TeamColour": "#006FFB",
+					"Delta": "+2m 43s",
+					"DistSailed": "3989m",
+					"MaxSpeed": "49.43kn",
+					"AveSpeed": "42.72kn",
+					"TacksGybes": "2",
+					"MinWindSpeed": "11.08kn",
+					"MaxWindSpeed": "22.23kn"
+				}
+			]
+		}
+	],
+	"RaceStats": {
+		"Boat": [
+			{
+				"Place": "1",
+				"Country": "ITA",
+				"TeamID": "2",
+				"TeamColour": "#7DCF30",
+				"TimeTaken": "26m 42s",
+				"DistSailed": "32296m",
+				"MaxSpeed": "49.83kn",
+				"AveSpeed": "39.53kn",
+				"TacksGybes": "24",
+				"MinWindSpeed": "12.65kn",
+				"MaxWindSpeed": "28.05kn"
+			},
+			{
+				"Place": "2",
+				"Country": "USA",
+				"TeamID": "3",
+				"TeamColour": "#006FFB",
+				"Delta": "+2m 43s",
+				"DistSailed": "34893m",
+				"MaxSpeed": "53.31kn",
+				"AveSpeed": "38.96kn",
+				"TacksGybes": "21",
+				"MinWindSpeed": "11.08kn",
+				"MaxWindSpeed": "26.06kn"
+			}
+		]
+	}
+}

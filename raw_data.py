@@ -51,8 +51,17 @@ def read_race(l, df, event):
             f.write(r.content)
 
     if "stats.json" not in os.listdir(race_path):
+        n = int(n)
+        if event=='prada2021' and n>15:
+            event_long = 'AC36_PradaCup_Final'
+            n = n-15
+        elif event=='prada2021' and 8<n<16:
+            event_long = 'AC36_PradaCup_SemiFinal'
+            n = n-9
+        else:
+            event_long = race_stats[event]
         r = requests.get(
-            f"https://www.americascup.com/AC_Stats/{race_stats[event]}/Race_{n}.json"
+            f"https://www.americascup.com/AC_Stats/{event_long}/Race_{n}.json"
         )
         with open(f"{race_path}/stats.json", "wb") as f:
             f.write(r.content)

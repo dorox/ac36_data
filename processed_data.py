@@ -28,6 +28,7 @@ stats = {
 def read_events(events):
     events_data = dict().fromkeys(events)
     for event in events:
+        print(f'Reading event {event}')
         if event in os.listdir("raw"):
             events_data[event] = read_races(event)
     return events_data
@@ -36,11 +37,15 @@ def read_events(events):
 def read_races(event):
     races = dict()
     for i in os.listdir(f"raw/{event}"):
+        print(f'Reading race {i}')
         if "RacesList" in i:
             continue
         path = f"{event}/{i}"
-        with open(f"raw/{path}/stats.json", "rb") as f:
-            race = json.load(f)
+        try:
+            with open(f"raw/{path}/stats.json", "rb") as f:
+                race = json.load(f)
+        except FileNotFoundError:
+            print(f'Race {i} stats.json not found')
         races[str(i)] = race
         boats = read_boats(race, f"raw/{path}")
         if compress:
@@ -52,6 +57,7 @@ def read_races(event):
 
 
 def read_boats(race, path):
+    print('Reading boats')
     if not "boat1.json" in os.listdir(path) and not "boat2.json" in os.listdir(path):
         raise FileNotFoundError
     with open(f"{path}/boat1.json", "rb") as f:
@@ -65,7 +71,7 @@ def interpolate_boat(boat_data, race):
     boat = dict()
     x = stat("heading", boat_data)
     x = x["x"]
-    x = np.linspace(int(x[0]), int(x[-1]), int(x[-1] - x[0])*2, dtype=int)
+    x = np.linspace(x[0], x[-1], int(x[-1] - x[0])*2)
     for s in stats:
         data = stat(s, boat_data)
         y = np.interp(x, data["x"], data["y"])
@@ -82,7 +88,6 @@ def interpolate_boat(boat_data, race):
     boat_data['lat'] = []
     boat_data['lonx'] = [i[1] for i in boat_data["coordIntep"]["xCerp"]["valHistory"]]
     boat_data['latx'] = [i[1] for i in boat_data["coordIntep"]["yCerp"]["valHistory"]]
-    
     for i, (lon, lat) in enumerate(zip(lon_y_raw, lat_y_raw)):
         lon, lat = tr.transform(lon, lat)
         boat_data["lon"].append(lon)
@@ -90,10 +95,10 @@ def interpolate_boat(boat_data, race):
     boat['lon'] = np.interp(x, boat_data['lonx'], boat_data['lon'])
     boat['lat'] = np.interp(x, boat_data['latx'], boat_data['lat'])
     # ----end of coord interp-----
-    race_start = boat_data["legInterp"]["valHistory"][1][1]
+    race_start = boat_data["legInterp"]["valHistory"][1][1]*1000
     boat["legs"] = np.array([i[1] for i in boat_data["legInterp"]["valHistory"]])
-    boat["legs"] = np.array(boat["legs"] - race_start, dtype="timedelta64[s]")
-    boat["x"] = np.array(x - race_start, dtype="timedelta64[s]")
+    boat["legs"] = np.array(boat["legs"]*1000 - race_start, dtype="timedelta64[ms]")
+    boat["x"] = np.array(x*1000 - race_start, dtype="timedelta64[ms]")
     color, name = get_boat_info(boat_data, race)
     boat["color"] = color
     boat["name"] = name
