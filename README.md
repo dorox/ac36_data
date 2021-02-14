@@ -2,6 +2,10 @@
 ---------------------------------
 Data comes from the virtualEye dashboard https://www.americascup.com/en/advanced-dashboard
 
+View the data at 
+- https://ac36.herokuapp.com/map
+- https://ac36.herokuapp.com/stats_app
+
 This repo contains raw data with 20Hz resolution and interpolated 1Hz data in ac36data folder.
 
 For convenience, it can be installed with `pip install git+https://github.com/dorox/ac36_data`: this will install the ac36data package containing 1Hz data with convenience data access functions.
