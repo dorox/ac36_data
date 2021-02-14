@@ -54,7 +54,7 @@ def read_race(l, df, event):
         n = int(n)
         if event=='prada2021' and n>15:
             event_long = 'AC36_PradaCup_Final'
-            n = n-15
+            n = n-16
         elif event=='prada2021' and 8<n<16:
             event_long = 'AC36_PradaCup_SemiFinal'
             n = n-9
