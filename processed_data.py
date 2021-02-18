@@ -97,8 +97,8 @@ def interpolate_boat(boat_data, race):
     # ----end of coord interp-----
     race_start = boat_data["legInterp"]["valHistory"][1][1]*1000
     boat["legs"] = np.array([i[1] for i in boat_data["legInterp"]["valHistory"]])
-    boat["legs"] = np.array(boat["legs"]*1000 - race_start, dtype="timedelta64[ms]")
-    boat["x"] = np.array(x*1000 - race_start, dtype="timedelta64[ms]")
+    boat["legs"] = np.array(boat["legs"]*1000, dtype="timedelta64[ms]")
+    boat["x"] = np.array(x*1000, dtype="timedelta64[ms]")
     color, name = get_boat_info(boat_data, race)
     boat["color"] = color
     boat["name"] = name
