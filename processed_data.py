@@ -2,7 +2,9 @@ import os
 import numpy as np
 import json
 import pickle
-
+import struct
+from datetime import datetime
+from collections import namedtuple
 from pyproj import CRS, Transformer
 
 compress = False
@@ -23,12 +25,53 @@ stats = {
     "twa_abs": "twa_abs",
     "vmg/tws": "tws/vmg",
 }
+Packets = namedtuple(
+    "packet_ids",
+    "boat penalty course_info course_boundary wind windpoint buoy roundingtime audio stats",
+)
+Course_info = namedtuple(
+    "course_Info",
+    "raceId startTime numLegs courseAngle raceStatus boattype liveDelaySecs",
+)
+Course_boundary = namedtuple("course_boundary", "raceId time nPoints points")
+
+packets_id = Packets(179, 182, 177, 185, 178, 190, 181, 180, 186, 183)
+
+
+def read_packets(path):
+    with open(path, "rb") as f:
+        b = bytearray(f.read()).split(b"\x10\x03\x10")
+    data = {i: [] for i in packets_id}
+    packets = []
+    for i, p in enumerate(b):
+        packets.append(p)
+        if p[0] == packets_id.course_info:
+            data[p[0]].append(read_course_info(p))
+        # elif p[0] == packets_id.course_boundary:
+        #     data[p[0]].append(read_course_boundary(p))
+    return data, packets
+
+
+def read_course_info(p):
+    p_id = p[0]
+    n = p[1]
+    p = p[2:]
+    return Course_info(*struct.unpack("!HIBHBBB", p))
+
+
+def read_course_boundary(p):
+    data = struct.unpack(f"!BBHIB{p[8]*2}I", p)
+    # 16 repeats increasing the n of bytes
+    points = [(i - 2147483648) / 1e7 for i in data[5:]]
+    points = zip(points[0::2], points[1::2])
+    data = Course_boundary(*data[2:5], tuple(points))
+    return data
 
 
 def read_events(events):
     events_data = dict().fromkeys(events)
     for event in events:
-        print(f'Reading event {event}')
+        print(f"Reading event {event}")
         if event in os.listdir("raw"):
             events_data[event] = read_races(event)
     return events_data
@@ -37,27 +80,37 @@ def read_events(events):
 def read_races(event):
     races = dict()
     for i in os.listdir(f"raw/{event}"):
-        print(f'Reading race {i}')
+        print(f"Reading race {i}")
         if "RacesList" in i:
             continue
         path = f"{event}/{i}"
-        try:
-            with open(f"raw/{path}/stats.json", "rb") as f:
-                race = json.load(f)
-        except FileNotFoundError:
-            print(f'Race {i} stats.json not found')
-        races[str(i)] = race
-        boats = read_boats(race, f"raw/{path}")
-        if compress:
-            b1 = interpolate_boat(boats[0], race)
-            b2 = interpolate_boat(boats[1], race)
-            save_stats(race, path)
-            save_boats((b1, b2), path)
+        if "stats.json" not in os.listdir(f"raw/{path}"):
+            raise FileNotFoundError(f"{path}/stats.json not found")
+
+        with open(f"raw/{path}/stats.json", "rb") as f:
+            race = json.load(f)
+            races[str(i)] = read_race(race, path)
     return races
 
 
+def read_race(race, path):
+    boats = read_boats(race, f"raw/{path}")
+    for file in os.listdir(f"raw/{path}"):
+        if file.endswith(".bin"):
+            path_bin = f"raw/{path}/{file}"
+    data, packets = read_packets(path_bin)
+    d = data[packets_id.course_info][-1]
+    race["course_info"] = dict(zip(d._fields, d))
+    if compress:
+        b1 = interpolate_boat(boats[0], race)
+        b2 = interpolate_boat(boats[1], race)
+        save_stats(race, path)
+        save_boats((b1, b2), path)
+    return race
+
+
 def read_boats(race, path):
-    print('Reading boats')
+    print("Reading boats")
     if not "boat1.json" in os.listdir(path) and not "boat2.json" in os.listdir(path):
         raise FileNotFoundError
     with open(f"{path}/boat1.json", "rb") as f:
@@ -71,7 +124,7 @@ def interpolate_boat(boat_data, race):
     boat = dict()
     x = stat("heading", boat_data)
     x = x["x"]
-    x = np.linspace(x[0], x[-1], int(x[-1] - x[0])*2)
+    x = np.linspace(x[0], x[-1], int(x[-1] - x[0]) * 2)
     for s in stats:
         data = stat(s, boat_data)
         y = np.interp(x, data["x"], data["y"])
@@ -84,21 +137,21 @@ def interpolate_boat(boat_data, race):
     tr = Transformer.from_crs(crs_utm, crs_wm)
     lon_y_raw = [i[0] for i in boat_data["coordIntep"]["xCerp"]["valHistory"]]
     lat_y_raw = [i[0] for i in boat_data["coordIntep"]["yCerp"]["valHistory"]]
-    boat_data['lon'] = []
-    boat_data['lat'] = []
-    boat_data['lonx'] = [i[1] for i in boat_data["coordIntep"]["xCerp"]["valHistory"]]
-    boat_data['latx'] = [i[1] for i in boat_data["coordIntep"]["yCerp"]["valHistory"]]
+    boat_data["lon"] = []
+    boat_data["lat"] = []
+    boat_data["lonx"] = [i[1] for i in boat_data["coordIntep"]["xCerp"]["valHistory"]]
+    boat_data["latx"] = [i[1] for i in boat_data["coordIntep"]["yCerp"]["valHistory"]]
     for i, (lon, lat) in enumerate(zip(lon_y_raw, lat_y_raw)):
         lon, lat = tr.transform(lon, lat)
         boat_data["lon"].append(lon)
         boat_data["lat"].append(lat)
-    boat['lon'] = np.interp(x, boat_data['lonx'], boat_data['lon'])
-    boat['lat'] = np.interp(x, boat_data['latx'], boat_data['lat'])
+    boat["lon"] = np.interp(x, boat_data["lonx"], boat_data["lon"])
+    boat["lat"] = np.interp(x, boat_data["latx"], boat_data["lat"])
     # ----end of coord interp-----
-    race_start = boat_data["legInterp"]["valHistory"][1][1]*1000
+    race_start = boat_data["legInterp"]["valHistory"][1][1] * 1000
     boat["legs"] = np.array([i[1] for i in boat_data["legInterp"]["valHistory"]])
-    boat["legs"] = np.array(boat["legs"]*1000, dtype="timedelta64[ms]")
-    boat["x"] = np.array(x*1000, dtype="timedelta64[ms]")
+    boat["legs"] = np.array(boat["legs"] * 1000, dtype="timedelta64[ms]")
+    boat["x"] = np.array(x * 1000, dtype="timedelta64[ms]")
     color, name = get_boat_info(boat_data, race)
     boat["color"] = color
     boat["name"] = name
@@ -127,6 +180,9 @@ def save_stats(race, path):
         pickle.dump(race, f)
 
 
+# --------Returning individual properties--------
+
+
 def get_twa(boat):
     twd = stat("twd", boat)
     cog = stat("heading", boat)
@@ -138,9 +194,6 @@ def get_twa(boat):
     y[y < 0] += 360
     y[y > 180] -= 360
     return dict(x=x, y=y)
-
-
-# --------Returning individual properties--------
 
 
 def get_twa_abs(boat):

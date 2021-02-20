@@ -52,12 +52,12 @@ def read_race(l, df, event):
 
     if "stats.json" not in os.listdir(race_path):
         n = int(n)
-        if event=='prada2021' and n>15:
-            event_long = 'AC36_PradaCup_Final'
-            n = n-16
-        elif event=='prada2021' and 8<n<16:
-            event_long = 'AC36_PradaCup_SemiFinal'
-            n = n-9
+        if event == "prada2021" and n > 15:
+            event_long = "AC36_PradaCup_Final"
+            n = n - 16
+        elif event == "prada2021" and 8 < n < 16:
+            event_long = "AC36_PradaCup_SemiFinal"
+            n = n - 9
         else:
             event_long = race_stats[event]
         r = requests.get(
