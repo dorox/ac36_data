@@ -201,3 +201,27 @@ Date		= Feb 20
 DayOfWeek	= Saturday
 Time		= 16:10
 Y1		= 0
+
+DataFile	= PCF_Race_7.bin
+Race		= 
+RaceNameA	= Race 23
+RaceNameB	= 
+RaceInfoA	= Auckland
+RaceInfoB	= Match Race
+RaceInfoC	= Race 23
+Date		= Feb 21
+DayOfWeek	= Saturday
+Time		= 15:10
+Y1		= 0
+
+DataFile	= PCF_Race_8.bin
+Race		= 
+RaceNameA	= Race 24
+RaceNameB	= 
+RaceInfoA	= Auckland
+RaceInfoB	= Match Race
+RaceInfoC	= Race 24
+Date		= Feb 21
+DayOfWeek	= Saturday
+Time		= 16:10
+Y1		= 0
