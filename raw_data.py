@@ -1,6 +1,8 @@
 import os
 import requests
 import re
+import json
+import pyyoutube
 
 events = ["acws2020", "prada2021", "ac2021"]
 race_stats = {
@@ -67,5 +69,22 @@ def read_race(l, df, event):
             f.write(r.content)
 
 
+def update_youtube():
+    api = pyyoutube.Api(api_key="AIzaSyARgDd1Uj4u6ayc4zTWI58WjfRwASlj5nY")
+    all_videos = api.get_playlist_items(
+        playlist_id="UUo15ZYO_XDRU9LI30OPtxAg", count=None
+    )
+    data = dict()
+    for video in all_videos.items:
+        video = video.to_dict()
+        snippet = video["snippet"]
+        title = snippet["title"]
+        if "Entry Stern" in title or "Full Race" in title:
+            data[title] = video
+    with open("raw/yt_videos.json", "w") as f:
+        f.write(json.dumps(data))
+
+
 if __name__ == "__main__":
     update_events(events)
+    update_youtube()

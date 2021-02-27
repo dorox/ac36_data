@@ -1,1 +1,1 @@
-from .data import get_races, get_boats, events
+from .data import get_races, get_boats, get_stats, events

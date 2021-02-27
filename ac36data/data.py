@@ -18,3 +18,11 @@ def get_boats(event, i):
         b1 = pickle.load(f)
         b2 = pickle.load(f)
     return b1, b2
+
+
+def get_stats(event, i):
+    path = os.path.split(__file__)[0]
+    path += f"/{event}/{i}"
+    with open(f"{path}/stats.bin", "rb") as f:
+        stats = pickle.load(f)
+    return stats

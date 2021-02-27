@@ -13,7 +13,6 @@ stats = {
     "heading": "headingIntep",
     "heel": "heelInterp",
     "pitch": "pitchInterp",
-    "height": "elevInterp",
     "speed": "speedInterp",
     "tws": "twsInterp",
     "twd": "twdInterp",
@@ -33,9 +32,33 @@ Course_info = namedtuple(
     "course_Info",
     "raceId startTime numLegs courseAngle raceStatus boattype liveDelaySecs",
 )
-Course_boundary = namedtuple("course_boundary", "raceId time nPoints points")
 
 packets_id = Packets(179, 182, 177, 185, 178, 190, 181, 180, 186, 183)
+
+with open("raw/yt_videos.json", "rb") as f:
+    yt_videos = json.load(f)
+with open("raw/yt_video_offsets.json", "rb") as f:
+    yt_offsets = json.load(f)
+
+
+def read_videos(date):
+    selected = dict()
+    for yt_title, v in yt_videos.items():
+        yt_id = v["contentDetails"]["videoId"]
+        yt_date = v["contentDetails"]["videoPublishedAt"]
+        yt_date = yt_date.replace("Z", "+00:00")
+        yt_date = datetime.fromisoformat(yt_date)
+        if yt_date.date() == date.date():
+            if "Port Entry" in yt_title:
+                selected["PRT"] = v["contentDetails"]
+                selected["PRT"]["offset"] = yt_offsets[yt_id]
+            elif "Starboard Entry" in yt_title:
+                selected["STBD"] = v["contentDetails"]
+                selected["STBD"]["offset"] = yt_offsets[yt_id]
+            elif "Full Race" in yt_title:
+                selected["TV"] = v["contentDetails"]
+                selected["TV"]["offset"] = yt_offsets[yt_id]
+    return selected
 
 
 def read_packets(path):
@@ -52,6 +75,15 @@ def read_packets(path):
     return data, packets
 
 
+def get_course_info(path):
+    for file in os.listdir(f"raw/{path}"):
+        if file.endswith(".bin"):
+            path_bin = f"raw/{path}/{file}"
+    data, packets = read_packets(path_bin)
+    d = data[packets_id.course_info][-1]
+    return dict(zip(d._fields, d))
+
+
 def read_course_info(p):
     p_id = p[0]
     n = p[1]
@@ -64,7 +96,7 @@ def read_course_boundary(p):
     # 16 repeats increasing the n of bytes
     points = [(i - 2147483648) / 1e7 for i in data[5:]]
     points = zip(points[0::2], points[1::2])
-    data = Course_boundary(*data[2:5], tuple(points))
+    # data = Course_boundary(*data[2:5], tuple(points))
     return data
 
 
@@ -86,21 +118,38 @@ def read_races(event):
         path = f"{event}/{i}"
         if "stats.json" not in os.listdir(f"raw/{path}"):
             raise FileNotFoundError(f"{path}/stats.json not found")
-
-        with open(f"raw/{path}/stats.json", "rb") as f:
-            race = json.load(f)
-            races[str(i)] = read_race(race, path)
+        races[str(i)] = read_race(i, event)
     return races
 
 
-def read_race(race, path):
+def read_race(i, event):
+    path = f"{event}/{i}"
+    with open(f"raw/{path}/stats.json", "rb") as f:
+        race = json.load(f)
     boats = read_boats(race, f"raw/{path}")
-    for file in os.listdir(f"raw/{path}"):
-        if file.endswith(".bin"):
-            path_bin = f"raw/{path}/{file}"
-    data, packets = read_packets(path_bin)
-    d = data[packets_id.course_info][-1]
-    race["course_info"] = dict(zip(d._fields, d))
+    race["course_info"] = get_course_info(path)
+    date = datetime.fromtimestamp(race["course_info"]["startTime"])
+    race["yt_videos"] = read_videos(date)
+    race_no = int(race["Race"]["RaceNumber"])
+
+    def get_dt(race_no, this_date, dt=0):
+        if race_no == 1:
+            return 0
+        elif os.path.exists(f"raw/{event}/{race_no-1}"):
+            prev_race = get_course_info(f"{event}/{race_no-1}")
+            prev_date = datetime.fromtimestamp(prev_race["startTime"])
+            if prev_date.date() == this_date.date():
+                dt += this_date.timestamp() - prev_date.timestamp()
+                dt += get_dt(race_no - 1, prev_date)
+                return dt
+            else:
+                return 0
+        else:
+            return 0
+
+    dt = get_dt(race_no, date)
+    for k in race["yt_videos"]:
+        race["yt_videos"][k]["offset"] += dt
     if compress:
         b1 = interpolate_boat(boats[0], race)
         b2 = interpolate_boat(boats[1], race)
