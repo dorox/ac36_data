@@ -70,7 +70,7 @@ def read_race(l, df, event):
 
 
 def update_youtube():
-    api = pyyoutube.Api(api_key="AIzaSyARgDd1Uj4u6ayc4zTWI58WjfRwASlj5nY")
+    api = pyyoutube.Api(api_key="")
     all_videos = api.get_playlist_items(
         playlist_id="UUo15ZYO_XDRU9LI30OPtxAg", count=None
     )
