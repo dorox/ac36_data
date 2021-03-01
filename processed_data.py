@@ -129,6 +129,7 @@ def read_race(i, event):
     boats = read_boats(race, f"raw/{path}")
     race["course_info"] = get_course_info(path)
     date = datetime.fromtimestamp(race["course_info"]["startTime"])
+    race["course_info"]["startTime"] = date.hour * 3600 + date.minute * 60 + date.second
     race["yt_videos"] = read_videos(date)
     race_no = int(i)
 
