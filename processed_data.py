@@ -130,7 +130,7 @@ def read_race(i, event):
     race["course_info"] = get_course_info(path)
     date = datetime.fromtimestamp(race["course_info"]["startTime"])
     race["yt_videos"] = read_videos(date)
-    race_no = int(race["Race"]["RaceNumber"])
+    race_no = int(i)
 
     def get_dt(race_no, this_date, dt=0):
         if race_no == 1:
@@ -148,6 +148,7 @@ def read_race(i, event):
             return 0
 
     dt = get_dt(race_no, date)
+    print(f"race {i}, dt {dt}")
     for k in race["yt_videos"]:
         race["yt_videos"][k]["offset"] += dt
     if compress:
