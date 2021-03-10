@@ -1,2 +1,23 @@
+DataFile	= AC36_Race_1.bin
+Race		= 
+RaceNameA	= Race 1
+RaceNameB	= 
+RaceInfoA	= Auckland
+RaceInfoB	= Match Race
+RaceInfoC	= Race 1
+Date		= March 10
+DayOfWeek	= Wednesday
+Time		= 16:15
+Y1		= 0
 
-
+DataFile	= AC36_Race_2.bin
+Race		= 
+RaceNameA	= Race 2
+RaceNameB	= 
+RaceInfoA	= Auckland
+RaceInfoB	= Match Race
+RaceInfoC	= Race 2
+Date		= March 10
+DayOfWeek	= Wednesday
+Time		= 17:15
+Y1		= 0

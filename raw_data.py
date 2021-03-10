@@ -8,7 +8,7 @@ events = ["acws2020", "prada2021", "ac2021"]
 race_stats = {
     "acws2020": "AC36_ACWS_Auckland",
     "prada2021": "AC36_PradaCup_RoundRobins",
-    "ac2021": None,
+    "ac2021": "AC36_AC_Match",
 }
 
 
@@ -79,7 +79,11 @@ def update_youtube():
         video = video.to_dict()
         snippet = video["snippet"]
         title = snippet["title"]
-        if "Entry Stern" in title or "Full Race" in title:
+        if (
+            "The 36th America’s Cup Presented by PRADA | 🔴 LIVE Day 1" in title
+            or "Entry Stern" in title
+            or "Full Race" in title
+        ):
             data[title] = video
     with open("raw/yt_videos.json", "w") as f:
         f.write(json.dumps(data))
