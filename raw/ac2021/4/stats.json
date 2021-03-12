@@ -1,0 +1,224 @@
+{
+	"Race": {
+		"RaceNumber": "4",
+		"NumberOfLegs": "6"
+	},
+	"LegStats": [
+		{
+			"LegNumber": "1",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "NZL",
+					"TeamID": "1",
+					"TeamColour": "#DD2631",
+					"TimeTaken": "4m 49s",
+					"DistSailed": "4235m",
+					"MaxSpeed": "31.75kn",
+					"AveSpeed": "28.64kn",
+					"TacksGybes": "4",
+					"MinWindSpeed": " 7.76kn",
+					"MaxWindSpeed": " 9.49kn"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#FDCF30",
+					"Delta": "+0m 09s",
+					"DistSailed": "4041m",
+					"MaxSpeed": "33.55kn",
+					"AveSpeed": "26.49kn",
+					"TacksGybes": "5",
+					"MinWindSpeed": " 8.81kn",
+					"MaxWindSpeed": "11.99kn"
+				}
+			]
+		},
+		{
+			"LegNumber": "2",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "NZL",
+					"TeamID": "1",
+					"TeamColour": "#DD2631",
+					"TimeTaken": "9m 01s",
+					"DistSailed": "4376m",
+					"MaxSpeed": "36.84kn",
+					"AveSpeed": "33.89kn",
+					"TacksGybes": "3",
+					"MinWindSpeed": " 7.93kn",
+					"MaxWindSpeed": "10.00kn"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#FDCF30",
+					"Delta": "+0m 34s",
+					"DistSailed": "4387m",
+					"MaxSpeed": "36.79kn",
+					"AveSpeed": "30.96kn",
+					"TacksGybes": "3",
+					"MinWindSpeed": " 7.97kn",
+					"MaxWindSpeed": "11.32kn"
+				}
+			]
+		},
+		{
+			"LegNumber": "3",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "NZL",
+					"TeamID": "1",
+					"TeamColour": "#DD2631",
+					"TimeTaken": "15m 02s",
+					"DistSailed": "5288m",
+					"MaxSpeed": "34.70kn",
+					"AveSpeed": "28.53kn",
+					"TacksGybes": "5",
+					"MinWindSpeed": " 7.68kn",
+					"MaxWindSpeed": " 9.81kn"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#FDCF30",
+					"Delta": "+0m 34s",
+					"DistSailed": "4854m",
+					"MaxSpeed": "31.23kn",
+					"AveSpeed": "26.19kn",
+					"TacksGybes": "5",
+					"MinWindSpeed": " 7.69kn",
+					"MaxWindSpeed": "12.52kn"
+				}
+			]
+		},
+		{
+			"LegNumber": "4",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "NZL",
+					"TeamID": "1",
+					"TeamColour": "#DD2631",
+					"TimeTaken": "19m 12s",
+					"DistSailed": "4471m",
+					"MaxSpeed": "38.80kn",
+					"AveSpeed": "34.86kn",
+					"TacksGybes": "3",
+					"MinWindSpeed": " 7.82kn",
+					"MaxWindSpeed": "10.79kn"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#FDCF30",
+					"Delta": "+0m 48s",
+					"DistSailed": "4305m",
+					"MaxSpeed": "36.29kn",
+					"AveSpeed": "31.69kn",
+					"TacksGybes": "3",
+					"MinWindSpeed": " 7.86kn",
+					"MaxWindSpeed": "12.05kn"
+				}
+			]
+		},
+		{
+			"LegNumber": "5",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "NZL",
+					"TeamID": "1",
+					"TeamColour": "#DD2631",
+					"TimeTaken": "25m 35s",
+					"DistSailed": "5713m",
+					"MaxSpeed": "40.21kn",
+					"AveSpeed": "29.16kn",
+					"TacksGybes": "5",
+					"MinWindSpeed": " 6.92kn",
+					"MaxWindSpeed": " 9.19kn"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#FDCF30",
+					"Delta": "+0m 58s",
+					"DistSailed": "5171m",
+					"MaxSpeed": "33.88kn",
+					"AveSpeed": "25.74kn",
+					"TacksGybes": "5",
+					"MinWindSpeed": " 7.62kn",
+					"MaxWindSpeed": "11.57kn"
+				}
+			]
+		},
+		{
+			"LegNumber": "6",
+			"Boat": [
+				{
+					"Place": "1",
+					"Country": "NZL",
+					"TeamID": "1",
+					"TeamColour": "#DD2631",
+					"TimeTaken": "29m 53s",
+					"DistSailed": "4527m",
+					"MaxSpeed": "41.45kn",
+					"AveSpeed": "34.10kn",
+					"TacksGybes": "3",
+					"MinWindSpeed": " 7.10kn",
+					"MaxWindSpeed": " 9.50kn"
+				},
+				{
+					"Place": "2",
+					"Country": "ITA",
+					"TeamID": "2",
+					"TeamColour": "#FDCF30",
+					"Delta": "+1m 03s",
+					"DistSailed": "4206m",
+					"MaxSpeed": "35.61kn",
+					"AveSpeed": "31.10kn",
+					"TacksGybes": "3",
+					"MinWindSpeed": " 7.49kn",
+					"MaxWindSpeed": "11.45kn"
+				}
+			]
+		}
+	],
+	"RaceStats": {
+		"Boat": [
+			{
+				"Place": "1",
+				"Country": "NZL",
+				"TeamID": "1",
+				"TeamColour": "#DD2631",
+				"TimeTaken": "29m 53s",
+				"DistSailed": "28610m",
+				"MaxSpeed": "41.45kn",
+				"AveSpeed": "31.12kn",
+				"TacksGybes": "23",
+				"MinWindSpeed": " 6.92kn",
+				"MaxWindSpeed": "10.79kn"
+			},
+			{
+				"Place": "2",
+				"Country": "ITA",
+				"TeamID": "2",
+				"TeamColour": "#FDCF30",
+				"Delta": "+1m 03s",
+				"DistSailed": "26963m",
+				"MaxSpeed": "36.79kn",
+				"AveSpeed": "28.33kn",
+				"TacksGybes": "24",
+				"MinWindSpeed": " 7.49kn",
+				"MaxWindSpeed": "12.52kn"
+			}
+		]
+	}
+}

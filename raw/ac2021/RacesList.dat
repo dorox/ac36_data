@@ -21,3 +21,27 @@ Date		= March 10
 DayOfWeek	= Wednesday
 Time		= 17:15
 Y1		= 0
+
+DataFile	= AC36_Race_3.bin
+Race		= 
+RaceNameA	= Race 3
+RaceNameB	= 
+RaceInfoA	= Auckland
+RaceInfoB	= Match Race
+RaceInfoC	= Race 3
+Date		= March 11
+DayOfWeek	= Friday
+Time		= 16:15
+Y1		= 0
+
+DataFile	= AC36_Race_4.bin
+Race		= 
+RaceNameA	= Race 4
+RaceNameB	= 
+RaceInfoA	= Auckland
+RaceInfoB	= Match Race
+RaceInfoC	= Race 4
+Date		= March 11
+DayOfWeek	= Friday
+Time		= 17:15
+Y1		= 0
