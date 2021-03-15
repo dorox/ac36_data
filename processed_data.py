@@ -58,6 +58,7 @@ def read_videos(date):
             elif (
                 "Full Race" in yt_title
                 or "The 36th America’s Cup Presented by PRADA | 🔴 LIVE Day" in yt_title
+                or "🔴LIVE Day" in yt_title
             ):
                 selected["TV"] = v["contentDetails"]
                 selected["TV"]["offset"] = yt_offsets[yt_id]
