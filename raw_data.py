@@ -81,7 +81,8 @@ def update_youtube():
         snippet = video["snippet"]
         title = snippet["title"]
         if (
-            "The 36th America’s Cup Presented by PRADA | 🔴 LIVE Day 1" in title
+            "The 36th\xaAmerica’s Cup Presented by PRADA | 🔴 LIVE Day " in title
+            or "🔴LIVE Day" in title
             or "Entry Stern" in title
             or "Full Race" in title
         ):
