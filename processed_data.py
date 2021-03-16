@@ -8,7 +8,7 @@ from collections import namedtuple
 from pyproj import CRS, Transformer
 
 compress = False
-events = ["acws2020", "prada2021", "ac2021"]
+events = ["ac2021"]  # ["acws2020", "prada2021", "ac2021"]
 stats = {
     "heading": "headingIntep",
     "heel": "heelInterp",
