@@ -8,7 +8,7 @@ from collections import namedtuple
 from pyproj import CRS, Transformer
 
 compress = False
-events = ["ac2021"]  # ["acws2020", "prada2021", "ac2021"]
+events = ["acws2020", "prada2021", "ac2021"]
 stats = {
     "heading": "headingIntep",
     "heel": "heelInterp",
@@ -20,6 +20,7 @@ stats = {
     "stbd foil": "rightFoilPosition",
     "both foils": "both foils",
     "vmg": "vmg",
+    "cvmg": "cvmg",
     "twa": "twa",
     "twa_abs": "twa_abs",
     "vmg/tws": "tws/vmg",
@@ -49,6 +50,8 @@ def read_videos(date):
         yt_date = yt_date.replace("Z", "+00:00")
         yt_date = datetime.fromisoformat(yt_date)
         if yt_date.date() == date.date():
+            if yt_id not in yt_offsets:
+                continue
             if "Port Entry" in yt_title:
                 selected["PRT"] = v["contentDetails"]
                 selected["PRT"]["offset"] = yt_offsets[yt_id]
@@ -58,7 +61,9 @@ def read_videos(date):
             elif (
                 "Full Race" in yt_title
                 or "The 36th America’s Cup Presented by PRADA | 🔴 LIVE Day" in yt_title
+                or "🔴 LIVE Day" in yt_title
                 or "🔴LIVE Day" in yt_title
+                and not "Eye" in yt_title
             ):
                 selected["TV"] = v["contentDetails"]
                 selected["TV"]["offset"] = yt_offsets[yt_id]
@@ -177,11 +182,11 @@ def read_boats(race, path):
 
 def interpolate_boat(boat_data, race):
     boat = dict()
-    x = stat("heading", boat_data)
+    x = stat("heading", boat_data, race)
     x = x["x"]
     x = np.linspace(x[0], x[-1], int(x[-1] - x[0]) * 2)
     for s in stats:
-        data = stat(s, boat_data)
+        data = stat(s, boat_data, race)
         y = np.interp(x, data["x"], data["y"])
         boat[s] = y
     # ----coordinates----
@@ -238,9 +243,9 @@ def save_stats(race, path):
 # --------Returning individual properties--------
 
 
-def get_twa(boat):
-    twd = stat("twd", boat)
-    cog = stat("heading", boat)
+def get_twa(boat, race):
+    twd = stat("twd", boat, race)
+    cog = stat("heading", boat, race)
     x = cog["x"]
     x = np.linspace(x[0], x[-1], int(x[-1] - x[0]))
     twd = np.interp(x, twd["x"], twd["y"])
@@ -251,16 +256,16 @@ def get_twa(boat):
     return dict(x=x, y=y)
 
 
-def get_twa_abs(boat):
-    d = get_twa(boat)
+def get_twa_abs(boat, race):
+    d = get_twa(boat, race)
     x = np.abs(d["x"])
     y = np.abs(d["y"])
     return dict(x=x, y=y)
 
 
-def get_vmg(boat):
-    twa = get_twa_abs(boat)
-    sog = stat("speed", boat)
+def get_vmg(boat, race):
+    twa = get_twa_abs(boat, race)
+    sog = stat("speed", boat, race)
     x = twa["x"]
     x = np.linspace(x[0], x[-1], len(x))
     sog = np.interp(x, sog["x"], sog["y"])
@@ -274,22 +279,36 @@ def get_vmg(boat):
     return dict(x=x, y=y)
 
 
-def get_both_foils(boat):
-    stbd = stat("stbd foil", boat)
-    port = stat("port foil", boat)
+def get_cvmg(boat, race):
+    # VMG to course axis
+    course_axis = race["course_info"]["courseAngle"]
+    sog = stat("speed", boat, race)
+    y = np.cos(np.deg2rad(course_axis)) * sog["y"]
+    x = sog["x"]
+    legs = boat["legInterp"]["valHistory"]
+    for i, leg in enumerate(legs[1:], 1):
+        if not leg[0] % 2 and i != len(legs) - 1:
+            mask = np.logical_and(x < legs[i + 1][1], x > legs[i][1])
+            y[mask] *= -1
+    return dict(x=x, y=y)
+
+
+def get_both_foils(boat, race):
+    stbd = stat("stbd foil", boat, race)
+    port = stat("port foil", boat, race)
     x = np.concatenate((stbd["x"], port["x"]))
     y = np.concatenate((stbd["y"], port["y"]))
     return dict(x=x, y=y)
 
 
-def get_vmgtws(boat):
-    vmg = get_vmg(boat)
-    tws = stat("tws", boat)
+def get_vmgtws(boat, race):
+    vmg = get_vmg(boat, race)
+    tws = stat("tws", boat, race)
     tws = np.interp(vmg["x"], tws["x"], tws["y"])
     return dict(x=vmg["x"], y=vmg["y"] / tws)
 
 
-def get_datetime(dic, boat):
+def get_datetime(dic, boat, race):
     race_start = boat["legInterp"]["valHistory"][1][1]
     x = dic["x"]
     x = np.array(x - race_start, dtype="timedelta64[s]")
@@ -298,6 +317,7 @@ def get_datetime(dic, boat):
 
 funcs = {
     "vmg": get_vmg,
+    "cvmg": get_cvmg,
     "twa": get_twa,
     "twa_abs": get_twa_abs,
     "both foils": get_both_foils,
@@ -305,9 +325,9 @@ funcs = {
 }
 
 
-def stat(key, boat):
+def stat(key, boat, race):
     if key in funcs:
-        return funcs[key](boat)
+        return funcs[key](boat, race)
     unit = 1
     if key == "tws":
         unit = 1.94384
