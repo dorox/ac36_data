@@ -282,8 +282,10 @@ def get_vmg(boat, race):
 def get_cvmg(boat, race):
     # VMG to course axis
     course_axis = race["course_info"]["courseAngle"]
+    heading = stat("heading", boat, race)
+    heading_to_course = course_axis - heading["y"]
     sog = stat("speed", boat, race)
-    y = np.cos(np.deg2rad(course_axis)) * sog["y"]
+    y = np.cos(np.deg2rad(heading_to_course)) * sog["y"]
     x = sog["x"]
     legs = boat["legInterp"]["valHistory"]
     for i, leg in enumerate(legs[1:], 1):
