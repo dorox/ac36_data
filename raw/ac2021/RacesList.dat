@@ -104,4 +104,16 @@ RaceInfoC	= Race 9
 Date		= March 16
 DayOfWeek	= Tuesday
 Time		= 16:45
-Y1		= 0 
+Y1		= 0
+
+DataFile	= AC36_Race_10.bin
+Race		= 
+RaceNameA	= Race 10
+RaceNameB	= 
+RaceInfoA	= Auckland
+RaceInfoB	= Match Race
+RaceInfoC	= Race 10
+Date		= March 17
+DayOfWeek	= Wednesday
+Time		= 16:45
+Y1		= 0  
